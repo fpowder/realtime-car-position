@@ -16,7 +16,7 @@ const sampleRouter = express.Router();
 const intervals = [0.1, 0.2, 1];
 const fileSetList = fs.readdirSync(path.join(appRoot, '/data/transformed/'));
 
-// logger.info('filelist', fileSetList)
+// console.log('filelist', fileSetList)
 
 sampleRouter.use(express.json());
 
@@ -108,7 +108,7 @@ sampleRouter.post('/data', (req: Request, res: Response) => {
 		sampleControls.allEmitEndCheck();
 		
 	} catch(e) {
-		logger.error('error occured on /sample/data route');
+		console.log('error occured on /sample/data route');
 		res.status(400).send({message: 'error occrured on creating sample e-avp data.'});
 	} finally {
 		res.status(200).send({message: 'create parking lot realtime data emit started.'});
@@ -130,7 +130,7 @@ sampleRouter.post('/stop', (req: Request, res: Response) => {
 		sampleControls.cctvMonit?.stop();
 		res.status(200).send({message: 'sample data socket emit stopped'});
 	} catch(e) {
-		logger.error('error occured on sample data control stop process.');
+		console.log('error occured on sample data control stop process.');
 		res.status(500).send({message: e});
 	}
 	
@@ -144,7 +144,7 @@ sampleRouter.post('/resume', (req: Request, res: Response) => {
 
 		res.status(200).send({message: 'resuming sample data emit on socket'});
 	} catch(e) {
-		logger.error(`can't resume sample data emit on socket.`);
+		console.log(`can't resume sample data emit on socket.`);
 		res.status(500).send({
 			message: `can't resume sample data emit on socket.`,
 			err: e

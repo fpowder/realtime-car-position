@@ -33,7 +33,7 @@ import { logger } from '../logger';
 		// 			console.log('on update: ', avpCarPosition);
 		// 		},
 		// 		onComplete: () => {
-		// 			logger.info('on complete: ', avpCarPosition);
+		// 			console.log('on complete: ', avpCarPosition);
 		// 		}
 		// 	},
 		// );
@@ -57,7 +57,7 @@ import { logger } from '../logger';
 						console.log('on update: ', avpCarPosition);
 					},
 					onComplete: () => {
-						logger.info('on complete: ', avpCarPosition);
+						console.log('on complete: ', avpCarPosition);
 						console.log(`${i} done.`);
 					}
 				},

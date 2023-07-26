@@ -10,8 +10,8 @@ export const appRoot = path.resolve();
 import { sample } from './router/sample';
 import { page } from './router/page';
 
-import MqttClient from './mqtt/client';
-import MqttLog from './mqtt/log';
+// import MqttClient from './mqtt/client';
+// import MqttLog from './mqtt/log';
 
 const app: Express = express();
 const server: http.Server = http.createServer(app);
@@ -29,13 +29,13 @@ export const io = new Server(server, {
 });
 
 io.on('connection', (socket) => {
-	logger.info('client connected');
+	console.log('client connected');
 });
 
 server.listen(port, () => {
-	logger.info(`server is running on port ${port}`);
+	console.log(`server is running on port ${port}`);
 
     // mqtt client start after http server is started.
-    new MqttClient(io);
-    new MqttLog().onMessageLogHandler();
+    // new MqttClient(io);
+    // new MqttLog().onMessageLogHandler();
 });

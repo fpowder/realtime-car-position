@@ -9,12 +9,11 @@ const CanAvp_1 = tslib_1.__importDefault(require("../control/sample/CanAvp"));
 const CctvAvp_1 = tslib_1.__importDefault(require("../control/sample/CctvAvp"));
 const CctvMonit_1 = tslib_1.__importDefault(require("../control/sample/CctvMonit"));
 const sampleControls_1 = require("../singleton/sampleControls");
-const logger_1 = require("../../logger");
 const server_1 = require("../server");
 const sampleRouter = express_1.default.Router();
 const intervals = [0.1, 0.2, 1];
 const fileSetList = fs_1.default.readdirSync(path_1.default.join(server_1.appRoot, '/data/transformed/'));
-// logger.info('filelist', fileSetList)
+// console.log('filelist', fileSetList)
 sampleRouter.use(express_1.default.json());
 sampleRouter.post('/data', (req, res) => {
     const body = req.body;
@@ -91,7 +90,7 @@ sampleRouter.post('/data', (req, res) => {
         sampleControls_1.sampleControls.allEmitEndCheck();
     }
     catch (e) {
-        logger_1.logger.error('error occured on /sample/data route');
+        console.log('error occured on /sample/data route');
         res.status(400).send({ message: 'error occrured on creating sample e-avp data.' });
     }
     finally {
@@ -112,7 +111,7 @@ sampleRouter.post('/stop', (req, res) => {
         res.status(200).send({ message: 'sample data socket emit stopped' });
     }
     catch (e) {
-        logger_1.logger.error('error occured on sample data control stop process.');
+        console.log('error occured on sample data control stop process.');
         res.status(500).send({ message: e });
     }
 });
@@ -125,7 +124,7 @@ sampleRouter.post('/resume', (req, res) => {
         res.status(200).send({ message: 'resuming sample data emit on socket' });
     }
     catch (e) {
-        logger_1.logger.error(`can't resume sample data emit on socket.`);
+        console.log(`can't resume sample data emit on socket.`);
         res.status(500).send({
             message: `can't resume sample data emit on socket.`,
             err: e

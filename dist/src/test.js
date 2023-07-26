@@ -5,7 +5,6 @@ const fs_1 = tslib_1.__importDefault(require("fs"));
 const three_1 = require("three");
 const gsap_1 = require("gsap");
 const server_1 = require("./server");
-const logger_1 = require("../logger");
 (() => {
     gsap_1.gsap.ticker.fps(10);
     const cctvAvpPath = `${server_1.appRoot}/data/transformed/set2/1/cctvAvpCar.json`;
@@ -32,7 +31,7 @@ const logger_1 = require("../logger");
         // 			console.log('on update: ', avpCarPosition);
         // 		},
         // 		onComplete: () => {
-        // 			logger.info('on complete: ', avpCarPosition);
+        // 			console.log('on complete: ', avpCarPosition);
         // 		}
         // 	},
         // );
@@ -52,7 +51,7 @@ const logger_1 = require("../logger");
                     console.log('on update: ', avpCarPosition);
                 },
                 onComplete: () => {
-                    logger_1.logger.info('on complete: ', avpCarPosition);
+                    console.log('on complete: ', avpCarPosition);
                     console.log(`${i} done.`);
                 }
             });
