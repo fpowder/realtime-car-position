@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "ts-node ./mqtt-test.ts",
-    "start": "node ./bin/src/server.js",
+    "start": "node ./dist/src/server.js",
     "clean": "rimraf dist/",
     "copy-files": "copyfiles data/**/*.json dist/src",
     "build": "yarn clean && tsc && yarn copy-files",
