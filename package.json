@@ -9,9 +9,16 @@
     "clean": "rimraf dist/",
     "copy-files": "copyfiles data/**/*.json dist/src",
     "build": "yarn clean && tsc && yarn copy-files",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
     "dev-server": "ts-node ./src/server.ts",
     "dev-client": "ts-node ./src/client.ts"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "author": "r6",
   "license": "ISC",
   "devDependencies": {
@@ -24,6 +31,7 @@
     "concurrently": "^7.6.0",
     "copyfiles": "^2.4.1",
     "nodemon": "^2.0.21",
+    "pre-commit": "^1.2.2",
     "rimraf": "^5.0.1",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
