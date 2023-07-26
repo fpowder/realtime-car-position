@@ -13,7 +13,7 @@ pageRouter.use(express_1.default.json());
 pageRouter.get('/', (req, res) => {
     console.log(dirname);
     console.log(frontPath);
-    res.sendFile(path_1.default.join(frontPath, '/index.html'));
+    res.json({ message: 'server is running' });
 });
 pageRouter.get('/static/**', (req, res) => {
     res.sendFile(path_1.default.join(frontPath, req.originalUrl));

@@ -15,7 +15,7 @@ pageRouter.get('/', (req: Request, res: Response) => {
     console.log(dirname);
     console.log(frontPath);
 
-    res.sendFile(path.join(frontPath, '/index.html'));
+    res.json({ message: 'server is running' });
     
 });
 
