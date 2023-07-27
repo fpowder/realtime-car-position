@@ -4,21 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ts-node ./mqtt-test.ts",
     "start": "node ./dist/src/server.js",
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles data/**/*.json dist/src",
-    "build": "yarn clean && tsc && yarn copy-files",
+    "build": "yarn clean && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
     "dev-server": "ts-node ./src/server.ts",
     "dev-client": "ts-node ./src/client.ts"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
   "author": "r6",
   "license": "ISC",
   "devDependencies": {
