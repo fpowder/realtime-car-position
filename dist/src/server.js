@@ -17,7 +17,7 @@ const port = 3001;
 app.use('/', page_1.page);
 app.use('/sample', sample_1.sample);
 exports.io = new socket_io_1.Server(server, {
-    transports: ['polling'],
+    transports: ['websocket'],
     cors: {
         origin: `*`,
         methods: ['GET', 'POST', 'UPDATE', 'DELETE'],
