@@ -19,7 +19,7 @@ app.use('/', page);
 app.use('/sample', sample);
 
 export const io = new Server(server, {
-	transports: ['websocket', 'polling'],
+	transports: ['polling'],
 	cors: {
 		origin: `*`,
 		methods: ['GET', 'POST', 'UPDATE', 'DELETE'],
