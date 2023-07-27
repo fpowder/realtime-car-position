@@ -1,5 +1,3 @@
-import { logger } from '../logger';
-
 import { Server } from 'socket.io';
 import http from 'http';
 import express, { Express } from 'express';
@@ -34,8 +32,4 @@ io.on('connection', (socket) => {
 
 server.listen(port, () => {
 	console.log(`server is running on port ${port}`);
-
-    // mqtt client start after http server is started.
-    // new MqttClient(io);
-    // new MqttLog().onMessageLogHandler();
 });

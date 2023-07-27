@@ -28,8 +28,5 @@ exports.io.on('connection', (socket) => {
 });
 server.listen(port, () => {
     console.log(`server is running on port ${port}`);
-    // mqtt client start after http server is started.
-    // new MqttClient(io);
-    // new MqttLog().onMessageLogHandler();
 });
 //# sourceMappingURL=server.js.map

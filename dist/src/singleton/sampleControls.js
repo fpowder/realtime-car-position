@@ -8,7 +8,7 @@ class SampleControls {
     }
     allEmitEndCheck() {
         this.emitEndCheckTimer = setInterval(() => {
-            if (this.canAvp.isEnd && this.cctvAvp.isEnd && this.cctvMonit.isEnd) {
+            if (this.cctvAvp.isEnd && this.cctvMonit.isEnd) {
                 this.isEmitting = false;
                 clearInterval(this.emitEndCheckTimer);
             }
